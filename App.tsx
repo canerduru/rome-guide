@@ -275,7 +275,7 @@ const App: React.FC = () => {
                   style={{ zIndex: isActive ? 100 : 1 }}
                 >
                   <div
-                    className="relative flex justify-center items-center w-[50px] h-[50px]"
+                    className="relative flex justify-center items-center w-[50px] h-[50px] cursor-pointer"
                     onMouseEnter={() => setHoveredSiteId(siteData.id)}
                     onMouseLeave={() => setHoveredSiteId(null)}
                   >
