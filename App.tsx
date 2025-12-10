@@ -176,12 +176,11 @@ const App: React.FC = () => {
               onMouseEnter={() => setHoveredSiteId(site.id)}
               onMouseLeave={() => setHoveredSiteId(null)}
               className={`
-w - full text - left p - 4 rounded - xl transition - all border shadow - sm group relative overflow - hidden
+                w-full text-left p-4 rounded-xl transition-all border shadow-sm group relative overflow-hidden
                 ${selectedSiteId === site.id
                   ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-300'
-                  : 'bg-white border-stone-200 hover:border-amber-300 hover:shadow-md'
-                }
-`}
+                  : 'bg-white border-stone-200 hover:border-amber-300 hover:shadow-md'}
+              `}
             >
               <div className="flex gap-4 items-start">
                 <div className="w-20 h-20 rounded-lg shrink-0 overflow-hidden bg-stone-200 shadow-inner">
@@ -193,7 +192,7 @@ w - full text - left p - 4 rounded - xl transition - all border shadow - sm grou
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className={`font - bold text - lg mb - 1 truncate ${selectedSiteId === site.id ? 'text-amber-900' : 'text-stone-900'} `}>
+                  <h3 className={`font-bold text-lg mb-1 truncate ${selectedSiteId === site.id ? 'text-amber-900' : 'text-stone-900'}`}>
                     {site.name}
                   </h3>
                   <p className="text-sm text-stone-600 line-clamp-2 leading-relaxed">
@@ -240,7 +239,7 @@ w - full text - left p - 4 rounded - xl transition - all border shadow - sm grou
               if (isCluster) {
                 return (
                   <Marker
-                    key={`cluster - ${cluster.id} `}
+                    key={`cluster-${cluster.id}`}
                     width={40}
                     anchor={[latitude, longitude]}
                     onClick={() => {
@@ -285,20 +284,20 @@ w - full text - left p - 4 rounded - xl transition - all border shadow - sm grou
                       <span className="absolute inline-flex h-10 w-10 rounded-full bg-amber-400 opacity-75 animate-ping -z-10 mt-[-8px]"></span>
                     )}
 
-                    <div className={`relative transition - transform duration - 300 ease - out origin - bottom ${isActive ? 'scale-125 -translate-y-2' : 'scale-100'} `}>
+                    <div className={`relative transition-transform duration-300 ease-out origin-bottom ${isActive ? 'scale-125 -translate-y-2' : 'scale-100'}`}>
                       <MapPin
                         size={40}
-                        className={`transition - colors duration - 300 drop - shadow - xl filter ${isSelected ? 'text-amber-600 fill-amber-600/20' : isHovered ? 'text-amber-500 fill-stone-100' : 'text-stone-700 fill-black/10'} `}
+                        className={`transition-colors duration-300 drop-shadow-xl filter ${isSelected ? 'text-amber-600 fill-amber-600/20' : isHovered ? 'text-amber-500 fill-stone-100' : 'text-stone-700 fill-black/10'}`}
                       />
                     </div>
 
                     {/* Tooltip Label */}
                     <div className={`
-                        absolute bottom - full left - 1 / 2 - translate - x - 1 / 2 mb - 1
-bg - white text - xs font - bold px - 2 py - 1 rounded shadow - md whitespace - nowrap
-pointer - events - none transition - all duration - 200 z - 10 text - stone - 800 border border - stone - 200
+                        absolute bottom-full left-1/2 -translate-x-1/2 mb-1
+                        bg-white text-xs font-bold px-2 py-1 rounded shadow-md whitespace-nowrap 
+                        pointer-events-none transition-all duration-200 z-10 text-stone-800 border border-stone-200
                         ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
-`}>
+                      `}>
                       {siteData.name}
                     </div>
                   </div>
