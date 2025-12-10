@@ -1,5 +1,6 @@
+```javascript
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { MapPin, Download, CheckCircle, RefreshCw, BookOpen, Sparkles } from 'lucide-react';
+import { Map, MapPin, Navigation, Info, X, Play, RotateCcw, Volume2, Globe, Calendar, Clock, Euro } from 'lucide-react';
 import { Map as PigeonMap, Marker, ZoomControl } from 'pigeon-maps';
 import useSupercluster from 'use-supercluster';
 import { ROME_SITES, ROME_CENTER } from './constants';
@@ -40,7 +41,7 @@ const App: React.FC = () => {
     // 1. Check local storage for cached images
     for (let i = 0; i < updatedSites.length; i++) {
       const site = updatedSites[i];
-      const storageKey = `offline_img_${site.id}`;
+      const storageKey = `offline_img_${ site.id } `;
       
       try {
         const cachedImage = localStorage.getItem(storageKey);
@@ -62,7 +63,7 @@ const App: React.FC = () => {
     let fetchUpdates = false;
     for (let i = 0; i < updatedSites.length; i++) {
       const site = updatedSites[i];
-      const storageKey = `offline_img_${site.id}`;
+      const storageKey = `offline_img_${ site.id } `;
       
       if (site.imageUrl.startsWith('http')) {
         try {
@@ -131,9 +132,9 @@ const App: React.FC = () => {
       
       {/* Sidebar / List View */}
       <div className={`
-        ${viewMode === 'DETAIL' ? 'hidden md:flex' : 'hidden md:flex'} 
-        flex-col w-full md:w-[450px] bg-white shadow-xl z-20 border-r border-stone-200 shrink-0
-      `}>
+        ${ viewMode === 'DETAIL' ? 'hidden md:flex' : 'hidden md:flex' }
+flex - col w - full md: w - [450px] bg - white shadow - xl z - 20 border - r border - stone - 200 shrink - 0
+  `}>
         <div className="p-6 bg-amber-600 text-white shrink-0 shadow-md z-10">
           <div className="flex justify-between items-start">
             <div>
@@ -175,11 +176,13 @@ const App: React.FC = () => {
               onMouseEnter={() => setHoveredSiteId(site.id)}
               onMouseLeave={() => setHoveredSiteId(null)}
               className={`
-                w-full text-left p-4 rounded-xl transition-all border shadow-sm group relative overflow-hidden
-                ${selectedSiteId === site.id 
-                  ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-300' 
-                  : 'bg-white border-stone-200 hover:border-amber-300 hover:shadow-md'}
-              `}
+w - full text - left p - 4 rounded - xl transition - all border shadow - sm group relative overflow - hidden
+                ${
+  selectedSiteId === site.id
+  ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-300'
+  : 'bg-white border-stone-200 hover:border-amber-300 hover:shadow-md'
+}
+`}
             >
               <div className="flex gap-4 items-start">
                 <div className="w-20 h-20 rounded-lg shrink-0 overflow-hidden bg-stone-200 shadow-inner">
@@ -191,7 +194,7 @@ const App: React.FC = () => {
                    />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className={`font-bold text-lg mb-1 truncate ${selectedSiteId === site.id ? 'text-amber-900' : 'text-stone-900'}`}>
+                  <h3 className={`font - bold text - lg mb - 1 truncate ${ selectedSiteId === site.id ? 'text-amber-900' : 'text-stone-900' } `}>
                     {site.name}
                   </h3>
                   <p className="text-sm text-stone-600 line-clamp-2 leading-relaxed">
@@ -238,7 +241,7 @@ const App: React.FC = () => {
               if (isCluster) {
                 return (
                   <Marker 
-                    key={`cluster-${cluster.id}`} 
+                    key={`cluster - ${ cluster.id } `} 
                     width={40} 
                     anchor={[latitude, longitude]}
                     onClick={() => {
@@ -283,20 +286,20 @@ const App: React.FC = () => {
                         <span className="absolute inline-flex h-10 w-10 rounded-full bg-amber-400 opacity-75 animate-ping -z-10 mt-[-8px]"></span>
                       )}
 
-                      <div className={`relative transition-transform duration-300 ease-out origin-bottom ${isActive ? 'scale-125 -translate-y-2' : 'scale-100'}`}>
+                      <div className={`relative transition - transform duration - 300 ease - out origin - bottom ${ isActive ? 'scale-125 -translate-y-2' : 'scale-100' } `}>
                         <MapPin 
                           size={40} 
-                          className={`transition-colors duration-300 drop-shadow-xl filter ${isSelected ? 'text-amber-600 fill-amber-600/20' : isHovered ? 'text-amber-500 fill-stone-100' : 'text-stone-700 fill-black/10'}`} 
+                          className={`transition - colors duration - 300 drop - shadow - xl filter ${ isSelected ? 'text-amber-600 fill-amber-600/20' : isHovered ? 'text-amber-500 fill-stone-100' : 'text-stone-700 fill-black/10' } `} 
                         />
                       </div>
                       
                       {/* Tooltip Label */}
                       <div className={`
-                        absolute bottom-full left-1/2 -translate-x-1/2 mb-1
-                        bg-white text-xs font-bold px-2 py-1 rounded shadow-md whitespace-nowrap 
-                        pointer-events-none transition-all duration-200 z-10 text-stone-800 border border-stone-200
-                        ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
-                      `}>
+                        absolute bottom - full left - 1 / 2 - translate - x - 1 / 2 mb - 1
+bg - white text - xs font - bold px - 2 py - 1 rounded shadow - md whitespace - nowrap
+pointer - events - none transition - all duration - 200 z - 10 text - stone - 800 border border - stone - 200
+                        ${ isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2' }
+`}>
                         {siteData.name}
                       </div>
                   </div>
