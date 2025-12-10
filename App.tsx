@@ -131,7 +131,7 @@ const App: React.FC = () => {
 
       {/* Sidebar / List View */}
       <div className={`
-        ${viewMode === 'DETAIL' ? 'hidden md:flex' : 'hidden md:flex'}
+        ${viewMode === 'DETAIL' ? 'hidden' : 'flex'} md:flex
         flex-col w-full md:w-[450px] bg-white shadow-xl z-20 border-r border-stone-200 shrink-0
       `}>
         <div className="p-6 bg-amber-600 text-white shrink-0 shadow-md z-10">
