@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Map, MapPin, Navigation, Info, X, Play, RotateCcw, Volume2, Globe, Calendar, Clock, Euro } from 'lucide-react';
+import { MapPin, Download, CheckCircle, RefreshCw } from 'lucide-react';
 import { Map as PigeonMap, Marker, ZoomControl } from 'pigeon-maps';
 import useSupercluster from 'use-supercluster';
 import { ROME_SITES, ROME_CENTER } from './constants';
